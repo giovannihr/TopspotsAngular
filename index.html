@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- add ng-app to initialize Angular -->
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>San Diego Top Spots in Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+</head>
+<!-- add  ng-controller and reference the name of the controller you defined in index.js -->
+
+<body ng-controller="MainController">
+    <!-- -->
+    <div id="tableDiv">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- -->
+                <tr ng-repeat="data in spots">
+                    <td>{{data.name}}</td>
+                    <td>{{data.description}}</td>
+                    <td>
+                        <button>
+                            <a target="_blank" href="https://www.google.com/maps?q={{data.location[0]}},{{data.location[1]}}">Click to see location!</a>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Will be added with javascript-->
+                <!-- -->
+            </tbody>
+        </table>
+        <!-- -->
+        <!-- -->
+        <div>
+            <!-- -->
+            <div class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="name" ng-model="name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Description</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="description" ng-model="description" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Longitude</label>
+                    <div>
+                        <input type="text" class="form-control" name="location2" ng-model="location2" />
+                    </div>
+                    <label class="col-md-2 control-label">Latitude</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="location1" ng-model="location1" />
+                    </div>
+                    <div class="form-group">
+                        <div style="padding-left:110px">
+                            <input type="submit" value="Submit" class="btn btn-primary" ng-click="addRow()" />
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+            </div>
+            <!-- -->
+            <!-- -->
+        </div>
+        <!-- -->
+        <!-- -->
+        <!-- -->
+        <script src="index.js"></script>
+</body>
+
+</html>
